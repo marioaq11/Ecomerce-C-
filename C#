@@ -1,0 +1,36 @@
+namespace CsBases.Fundamentals;
+
+//Clase Producto
+public class Product : IProduct
+{
+    // Propiedades
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+    public bool IsAvalaible { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public Guid UniqueCode { get; set; }
+
+
+//Constructor
+    public Product(string name, decimal price)
+    {
+        Name = name;
+        Price = price;
+        CreatedAt = DateTime.Now;
+        UniqueCode = Guid.NewGuid(); //Genera un código único para cada producto
+    }
+
+    // Método para aplicar un descuento al precio del producto
+    public void ApplyDiscount(decimal percentage)
+    {
+    var discountAmount = Price * (percentage / 100);
+    Price -= discountAmount; //Aplica el descuento al precio actual
+    }
+
+    // Método para obtener una descripción del producto
+    public virtual string GetDescription() //"Virtual" permite que las clases derivadas puedan sobrescribirlo
+    {
+        return $"{Name} - {Price:C}";
+    }
+}
