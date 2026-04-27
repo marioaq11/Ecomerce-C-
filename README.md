@@ -1,3 +1,5 @@
+Práctica de C#
+
 📦 E-comerce
 
 La clase Product representa un producto en el sistema, almacenando información como nombre, precio, disponibilidad, fecha de creación y un identificador único (Guid).
